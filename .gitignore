@@ -1,0 +1,14 @@
+*.user
+*.suo
+*.log
+*.swp
+*.exe
+*.bak
+*.orig
+*.zip
+
+.vs/
+.vscode/
+.idea/
+
+node_modules/
