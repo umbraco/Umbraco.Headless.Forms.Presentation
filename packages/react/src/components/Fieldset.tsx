@@ -27,4 +27,6 @@ const Fieldset: React.FC<Props> = ({ caption, children, condition }) => {
   )
 }
 
+Fieldset.displayName = 'Fieldset'
+
 export default Fieldset

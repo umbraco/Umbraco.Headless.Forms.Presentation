@@ -93,4 +93,6 @@ const Choice: React.FC<Props> = ({
   )
 }
 
+Choice.displayName = 'Choice'
+
 export default Choice

@@ -19,4 +19,6 @@ const Page: React.FC<Props> = ({ caption, children }) => {
   )
 }
 
+Page.displayName = 'Page'
+
 export default Page

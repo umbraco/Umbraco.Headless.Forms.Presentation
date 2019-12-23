@@ -54,4 +54,6 @@ const FieldGroup: React.FC<Props> = ({
   )
 }
 
+FieldGroup.displayName = 'FieldGroup'
+
 export default FieldGroup

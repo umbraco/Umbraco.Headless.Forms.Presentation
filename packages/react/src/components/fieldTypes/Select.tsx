@@ -73,4 +73,6 @@ const Select: React.FC<Props> = ({
   )
 }
 
+Select.displayName = 'Select'
+
 export default Select

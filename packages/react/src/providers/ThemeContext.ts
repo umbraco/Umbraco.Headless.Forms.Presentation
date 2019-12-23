@@ -10,4 +10,8 @@ export const defaultTheme = {
   fieldGroup: 'Form-FieldGroup',
 }
 
-export default createContext<ThemeContext>(defaultTheme)
+const Context = createContext<ThemeContext>(defaultTheme)
+
+Context.displayName = 'ThemeContext'
+
+export default Context

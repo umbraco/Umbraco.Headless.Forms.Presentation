@@ -23,7 +23,7 @@ interface Props {
   form: types.Form
   recaptchaPublicKey?: string
   theme?: types.Theme
-  onSubmit: (data: object) => void
+  onSubmit: (data: types.FormData) => void
 }
 
 interface TypeMap {
@@ -88,7 +88,7 @@ const Form: React.FC<Props> = ({
   const formRef = React.createRef<HTMLFormElement>()
   const isCurrentPage = (index: number) => index === currentPage
 
-  const validateField = (field: types.Field) => {
+  const validateField = useCallback((field: types.Field) => {
     const formField = formFields.find(f => f.alias === field.name)
     if (!formField) return
 
@@ -119,23 +119,26 @@ const Form: React.FC<Props> = ({
     }
 
     return fieldErrors
-  }
+  }, [errors, data])
 
-  const validateForm = useCallback((revalidate = false) => {
-    let isValid = true
-    for (const field of fields) {
-      if (!revalidate || errors[field.name]) {
-        const fieldErrors = validateField(field)
-        if (fieldErrors && fieldErrors.length) isValid = false
+  const validateForm = useCallback(
+    (revalidate = false) => {
+      let isValid = true
+      for (const field of fields) {
+        if (!revalidate || errors[field.name]) {
+          const fieldErrors = validateField(field)
+          if (fieldErrors && fieldErrors.length) isValid = false
+        }
       }
-    }
 
-    return isValid
-  }, [])
+      return isValid
+    },
+    [fields, validateField],
+  )
 
   useEffect(() => {
     validateForm(true)
-  }, [data, validateForm])
+  }, [data])
 
   const handleValueChange = useCallback(
     (name: string, value?: types.FieldValue) => {
@@ -230,60 +233,66 @@ const Form: React.FC<Props> = ({
   }
 
   return (
-    <FormContext.Provider
-      value={{
-        form,
-        data,
-        errors,
-        registerField,
-        unregisterField,
-        onValueChange: handleValueChange,
-        recaptchaPublicKey,
-      }}
-    >
-      <ThemeContext.Provider value={theme}>
-        <form
-          onSubmit={handleSubmit}
-          ref={formRef}
-          className={className}
-          style={styles}
-          noValidate={true}
+    <>
+      {form && (
+        <FormContext.Provider
+          value={{
+            form,
+            data,
+            errors,
+            registerField,
+            unregisterField,
+            onValueChange: handleValueChange,
+            recaptchaPublicKey,
+          }}
         >
-          {form.pages.map(
-            (p, i) =>
-              isCurrentPage(i) && (
-                <Page key={i} caption={p.caption}>
-                  {p.fieldsets.map((f, i) => (
-                    <Fieldset
-                      key={i}
-                      caption={f.caption}
-                      condition={f.condition}
-                    >
-                      {f.columns.map((c, i) => (
-                        <Column key={i} caption={c.caption} width={c.width}>
-                          {c.fields.map(renderField)}
-                        </Column>
+          <ThemeContext.Provider value={theme}>
+            <form
+              onSubmit={handleSubmit}
+              ref={formRef}
+              className={className}
+              style={styles}
+              noValidate={true}
+            >
+              {form.pages.map(
+                (p, i) =>
+                  isCurrentPage(i) && (
+                    <Page key={i} caption={p.caption}>
+                      {p.fieldsets.map((f, i) => (
+                        <Fieldset
+                          key={i}
+                          caption={f.caption}
+                          condition={f.condition}
+                        >
+                          {f.columns.map((c, i) => (
+                            <Column key={i} caption={c.caption} width={c.width}>
+                              {c.fields.map(renderField)}
+                            </Column>
+                          ))}
+                        </Fieldset>
                       ))}
-                    </Fieldset>
-                  ))}
-                </Page>
-              ),
-          )}
-          {currentPage > 0 && (
-            <button type="button" onClick={handlePreviousPageClick}>
-              Previous
-            </button>
-          )}
-          {form.pages.length - 1 > currentPage && (
-            <button type="button" onClick={handleNextPageClick}>
-              Next
-            </button>
-          )}
-          {form.pages.length - 1 === currentPage && <button>Submit</button>}
-        </form>
-      </ThemeContext.Provider>
-    </FormContext.Provider>
+                    </Page>
+                  ),
+              )}
+              {currentPage > 0 && (
+                <button type="button" onClick={handlePreviousPageClick}>
+                  Previous
+                </button>
+              )}
+              {form.pages.length - 1 > currentPage && (
+                <button type="button" onClick={handleNextPageClick}>
+                  Next
+                </button>
+              )}
+              {form.pages.length - 1 === currentPage && <button>Submit</button>}
+            </form>
+          </ThemeContext.Provider>
+        </FormContext.Provider>
+      )}
+    </>
   )
 }
+
+Form.displayName = 'Form'
 
 export default Form

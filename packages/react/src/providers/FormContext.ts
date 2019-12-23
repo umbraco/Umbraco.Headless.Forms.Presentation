@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 import { FormContext, Form } from '../types'
 
-export default createContext<FormContext>({
+const Context = createContext<FormContext>({
   data: {},
   errors: {},
   form: {} as Form,
@@ -16,3 +16,7 @@ export default createContext<FormContext>({
     return
   },
 })
+
+Context.displayName = 'FormContext'
+
+export default Context

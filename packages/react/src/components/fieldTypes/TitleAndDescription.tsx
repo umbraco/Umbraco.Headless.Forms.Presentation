@@ -8,7 +8,7 @@ type Props = FieldProps & {
   bodyText?: string
 }
 
-const Textarea: React.FC<Props> = ({ caption, bodyText }) => {
+const TitleAndDescription: React.FC<Props> = ({ caption, bodyText }) => {
   const theme = useContext(ThemeContext)
   const [className, styles] = useTheme(theme, 'fieldGroup')
 
@@ -20,4 +20,6 @@ const Textarea: React.FC<Props> = ({ caption, bodyText }) => {
   )
 }
 
-export default Textarea
+TitleAndDescription.displayName = 'TitleAndDescription'
+
+export default TitleAndDescription

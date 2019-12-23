@@ -20,4 +20,6 @@ const Column: React.FC<Props> = ({ caption, children, width }) => {
   )
 }
 
+Column.displayName = 'Column'
+
 export default Column

@@ -5,7 +5,7 @@ import useField from '../../hooks/useField'
 type Props = JSX.IntrinsicElements['input'] & {
   alias: string
   requiredErrorMessage?: string
-  patternErrorMessage?: string
+  patternInvalidErrorMessage?: string
 }
 
 const Input: React.FC<Props> = ({
@@ -13,7 +13,7 @@ const Input: React.FC<Props> = ({
   placeholder,
   required,
   pattern,
-  patternErrorMessage,
+  patternInvalidErrorMessage,
   type,
 }) => {
   const { currentValue, error, registerField } = useField(alias)
@@ -33,7 +33,7 @@ const Input: React.FC<Props> = ({
             !value.match(pattern)
           ) {
             errors.push(
-              patternErrorMessage ||
+              patternInvalidErrorMessage ||
                 `Please match the requested format: ${pattern}`,
             )
           }
@@ -42,7 +42,7 @@ const Input: React.FC<Props> = ({
         },
       })
     },
-    [alias, pattern, patternErrorMessage, registerField],
+    [alias, pattern, patternInvalidErrorMessage, registerField],
   )
 
   return (
@@ -61,5 +61,7 @@ const Input: React.FC<Props> = ({
     </>
   )
 }
+
+Input.displayName = 'Input'
 
 export default Input

@@ -10,7 +10,7 @@ type Props = JSX.IntrinsicElements['input'] &
     patternErrorMessage?: string
   }
 
-const Text: React.FC<Props> = ({
+const InputWithLabel: React.FC<Props> = ({
   alias,
   caption,
   condition,
@@ -31,4 +31,6 @@ const Text: React.FC<Props> = ({
   )
 }
 
-export default Text
+InputWithLabel.displayName = 'InputWithLabel'
+
+export default InputWithLabel

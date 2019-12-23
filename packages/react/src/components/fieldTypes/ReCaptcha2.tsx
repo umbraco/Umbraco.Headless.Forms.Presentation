@@ -85,4 +85,6 @@ const ReCaptcha2: React.FC<Props> = ({
   )
 }
 
+ReCaptcha2.displayName = 'ReCaptcha2'
+
 export default ReCaptcha2
