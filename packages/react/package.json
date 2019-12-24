@@ -1,10 +1,25 @@
 {
   "name": "@umbraco/headless-forms-react",
   "version": "0.1.0",
+  "description": "Umbraco Forms React Components for Umbraco Heartcore",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umbraco/Umbraco.Headless.Forms.Presentation.git"
   },
+  "keywords": [
+    "umbraco",
+    "cms",
+    "headless",
+    "heartcore",
+    "forms",
+    "react"
+  ],
+  "author": "Umbraco (https://www.umbraco.com)",
+  "bugs": {
+    "url": "https://github.com/umbraco/Umbraco.Headless.Forms.Presentation/issues"
+  },
+  "homepage": "https://github.com/umbraco/Umbraco.Headless.Forms.Presentation#readme",
   "module": "index.js",
   "typings": "index.d.ts",
   "scripts": {
