@@ -3,48 +3,48 @@
   max-width: 800px
 }
 
-.Form-Fieldset {
+.Form-fieldset {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
-.Form-Column[data-columns='1'] {
+.Form-column[data-columns='1'] {
   grid-column: span 1;
 }
 
-.Form-Column[data-columns='2'] {
+.Form-column[data-columns='2'] {
   grid-column: span 2;
 }
 
-.Form-Column[data-columns='3'] {
+.Form-column[data-columns='3'] {
   grid-column: span 3;
 }
 
-.Form-Column[data-columns='4'] {
+.Form-column[data-columns='4'] {
   grid-column: span 4;
 }
 
-.Form-Column[data-columns='5'] {
+.Form-column[data-columns='5'] {
   grid-column: span 5;
 }
 
-.Form-Column[data-columns='6'] {
+.Form-column[data-columns='6'] {
   grid-column: span 6;
 }
 
-.Form-Column[data-columns='7'] {
+.Form-column[data-columns='7'] {
   grid-column: span 7;
 }
 
-.Form-Column[data-columns='8'] {
+.Form-column[data-columns='8'] {
   grid-column: span 8;
 }
 
-.Form-Column[data-columns='9'] {
+.Form-column[data-columns='9'] {
   grid-column: span 9;
 }
 
-.Form-Column[data-columns='10'] {
+.Form-column[data-columns='10'] {
   grid-column: span 10;
 }
 
@@ -56,36 +56,36 @@
   grid-column: span 12;
 }
 
-.Form-FieldGroup {
+.Form-fieldGroup {
   margin: 10px 5px;
 }
 
-.Form-FieldGroup label:nth-child(1) {
+.Form-fieldGroup label:nth-child(1) {
   display: block;
 }
 
-.Form-FieldGroup h1,
-.Form-FieldGroup p {
+.Form-fieldGroup h1,
+.Form-fieldGroup p {
   margin: 10px 0 0;
 }
 
-.Form-FieldGroup p {
+.Form-fieldGroup p {
   white-space: pre;
 }
 
-.Form-FieldGroup input[type=date],
-.Form-FieldGroup input[type=password],
-.Form-FieldGroup input[type=text],
-.Form-FieldGroup select,
-.Form-FieldGroup textarea {
+.Form-fieldGroup input[type=date],
+.Form-fieldGroup input[type=password],
+.Form-fieldGroup input[type=text],
+.Form-fieldGroup select,
+.Form-fieldGroup textarea {
   width: 100%;
 }
 
-.Form-FieldGroup textarea {
+.Form-fieldGroup textarea {
   height: 70px;
 }
 
-.Form-FieldGroup span:last-child {
+.Form-fieldGroup span:last-child {
   color: red;
   display: block;
 }

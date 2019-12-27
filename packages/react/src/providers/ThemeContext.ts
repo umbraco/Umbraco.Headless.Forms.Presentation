@@ -4,10 +4,10 @@ import { ThemeContext } from '../types'
 
 export const defaultTheme = {
   form: 'Form',
-  page: 'Form-Page',
-  fieldset: 'Form-Fieldset',
-  column: 'Form-Column',
-  fieldGroup: 'Form-FieldGroup',
+  page: 'Form-page',
+  fieldset: 'Form-fieldset',
+  column: 'Form-column',
+  fieldGroup: 'Form-fieldGroup',
 }
 
 const Context = createContext<ThemeContext>(defaultTheme)
