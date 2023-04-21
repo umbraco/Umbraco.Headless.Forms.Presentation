@@ -9,9 +9,9 @@ contact_links:
   - name: 🚀 Umbraco Heartcore Issues
     url: https://github.com/umbraco/Umbraco.Heartcore.Issues/issues
     about: For issues regarding Umbraco Heartcore please visit the corresponding issue tracker.
-  - name: 💻 Umbraco Heartcore Client Issues
+  - name: 💻 Umbraco Heartcore .NET Client Issues
     url: https://github.com/umbraco/Umbraco.Headless.Client.Net/issues
-    about: For issues regarding the client library for Heartcore please visit the corresponding issue tracker.
-  - name: 🔽 Umbraco Heartcore Static Vue WebApp Issues
-    url: https://github.com/umbraco/Umbraco.Headless.StaticWebApp.Vue/issues
-    about: For issues regarding the static Vue WebApp please visit the corresponding issue tracker
+    about: For issues regarding the .NET client library for Heartcore please visit the corresponding issue tracker.
+  - name: 💻 Umbraco Heartcore NodeJs Client Issues
+    url: https://github.com/umbraco/Umbraco.Headless.Client.NodeJs/issues
+    about: For issues regarding the NodeJs client library for Heartcore please visit the corresponding issue tracker.
